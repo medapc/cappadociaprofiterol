@@ -1,0 +1,15 @@
+---
+import { Image } from 'astro:assets';
+import hero from '../assets/profiterol.png';
+import Icon from './Icon.astro';
+---
+<section id="hakkimizda" class="section container about" aria-labelledby="about-title">
+  <div class="about-image"><Image src={hero} alt="Profiterolün çikolata ve krema dokusuna yakın bakış; temsili görsel" widths={[420, 700]} sizes="(max-width: 767px) 90vw, 38vw" format="webp" quality={65} loading="lazy" /><span class="image-note">Bir kaşık dolusu iyi his.</span></div>
+  <div class="about-copy">
+    <p class="eyebrow">BİZİM HİKÂYEMİZ</p>
+    <h2 id="about-title">Güzel anların<br /><em>tatlı bir eşlikçisi.</em></h2>
+    <p>Bazen güzel bir günün kutlaması, bazen uzun bir günün küçük ödülü… Bizim için tatlı, bir araya gelmenin en güzel bahanesi.</p>
+    <p>Cappadokia Profiterol’ün merkezinde sade bir fikir var: çikolatanın yoğunluğunu, kremanın hafifliğini ve tazelik hissini aynı kaşıkta buluşturmak. Her molaya biraz daha keyif katmak.</p>
+    <div class="about-values"><span><Icon name="spark" /> Lezzete özen</span><span><Icon name="spark" /> Tazelik tutkusu</span><span><Icon name="spark" /> Paylaşma mutluluğu</span></div>
+  </div>
+</section>

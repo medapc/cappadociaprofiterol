@@ -1,0 +1,12 @@
+---
+import type { GalleryImage } from '../lib/gallery-images';
+interface Props { photo: GalleryImage; preview?: boolean; index: number; }
+const { photo, preview = false, index } = Astro.props;
+---
+<figure class="gallery-photo" id={preview ? undefined : photo.id}>
+  <a href={preview ? `/mekanimiz/#${photo.id}` : photo.full.src} class="gallery-photo-link" data-gallery-photo={preview ? undefined : index} data-caption={photo.title} data-alt={photo.alt} data-width={photo.image.width} data-height={photo.image.height} aria-label={`${photo.title} — ${preview ? 'galeride görüntüle' : 'fotoğrafı büyüt'}`}>
+    <img src={photo.full.src} srcset={photo.srcset} sizes="(max-width: 639px) calc(100vw - 40px), (max-width: 1023px) 45vw, 380px" width={photo.image.width} height={photo.image.height} alt={photo.alt} loading={!preview && index === 0 ? 'eager' : 'lazy'} fetchpriority={!preview && index === 0 ? 'high' : 'auto'} decoding="async" />
+    <span class="gallery-zoom" aria-hidden="true">↗</span>
+  </a>
+  <figcaption><span>{String(index + 1).padStart(2, '0')}</span>{photo.title}</figcaption>
+</figure>

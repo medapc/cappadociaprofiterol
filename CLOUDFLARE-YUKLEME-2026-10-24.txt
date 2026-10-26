@@ -1,0 +1,35 @@
+CAPPADOKIA PROFİTEROL — CLOUDFLARE PAGES YAYIN PAKETİ
+24 Ekim 2026
+
+Yayın adresi: https://cappadociaprofiterol.com
+Dosya: cappadokia-profiterol-dist-2026-10-24.zip
+Bu paket derlenmiş statik siteyi içerir. Node.js, pnpm veya yeniden build gerekmez.
+
+YÜKLEME
+1. Cloudflare > Workers & Pages > ilgili PAGES projesini açın.
+2. Create a new deployment > Production seçin.
+3. ZIP'i yükleyin. Alternatif olarak ZIP'i açıp içindeki index.html, _astro, urunler, mekanimiz ve diğer tüm dosyaları birlikte yükleyin. Ek bir üst klasörün içine koymayın; index.html yayın kökünde olmalı.
+4. Save and Deploy işlemini tamamlayın; dağıtımın başarılı olduğunu kontrol edin.
+5. Önce projenin Cloudflare tarafından gösterilen pages.dev adresini açın. Ana sayfada “Hayatın en tatlı molası.” görünmeli.
+6. Aynı Pages projesinde Custom domains > Set up a domain bölümünden cappadociaprofiterol.com adresini ekleyin. Cloudflare'ın DNS/sertifika kurulumunu tamamlayıp Active durumunu bekleyin. www adresi de kullanılacaksa onu ayrıca ekleyin.
+7. Ana sayfa, /mekanimiz/, mobil menü, telefon/WhatsApp ve haritayı kontrol edin.
+
+Git bağlantılı bir Pages projesinde panelden sürükle-bırak sunulmuyorsa, aynı çıktıyı Wrangler ile o projeye dağıtın veya Direct Upload türünde Pages projesi kullanın. Bu paket bir Worker uygulaması değildir.
+
+KONTROLLER
+- 7 veri/yayın testi geçti; Astro/TypeScript 0 hata ve 0 uyarı.
+- SITE_URL=https://cappadociaprofiterol.com ve SITE_INDEXABLE=true ile üretim build'i alındı.
+- Canonical, robots, sitemap, yapılandırılmış veriler ve dosya bağlantıları doğrulandı.
+- Cloudflare Wrangler 4.152.0 yerel Pages ortamında 27 adres kontrolü geçti. Ana sayfa doğrudan HTTP 200: sıfır yönlendirme.
+- 126 yerel varlık/bağlantı kontrolü geçti. 156 dosya var; en büyük dosya 2,95 MiB. Cloudflare panel dosya/adet sınırları içinde.
+- 51 gramaj, 15 ürün sayfası, kategori filtreleri, geri/ileri gezinme, mobil/masaüstü taşma, klavye, galeri büyütme, JS kapalı kullanım ve konsol/yerel varlık kontrolleri geçti.
+- ZIP bütünlüğü ve ZIP içeriğinin dist ile birebir eşleşmesi kontrol edildi.
+
+CANLI YAYIN TESPİTİ VE SINIRLAR
+24 Ekim kontrolünde cappadociaprofiterol.com için A/AAAA/CNAME yanıtı alınmadı; www kaydı NXDOMAIN döndü. Eski cappadociaprofiterol.pages.dev adresi HTTP 404 verdi. Canlıda sonsuz yönlendirme zinciri bu kontrolde gözlenmedi. Hesaptaki Redirect Rules, Bulk Redirects, Worker Routes ve Pages özel alan adı ayarlarına erişimimiz yok; dosya dışındaki ayarlar ZIP tarafından değiştirilemez. pages.dev çalışırken özel alan adı çalışmıyorsa Custom domains/DNS ve varsa birbirini tersine yönlendiren kurallar kontrol edilmeli.
+
+Google haritası üçüncü taraf hizmetidir. Yerel testte harita kutucuklarının görünmesi doğrulanamadı; yayın sonrası kontrol edin. Google kaydının adı İstanbul Profiterol olarak kalıyor. Telefon veya WhatsApp üzerinden gerçek arama/mesaj yapılmadı. Lighthouse bu sürümde yeniden ölçülmedi; eski skorlar yeni çıktı için iddia edilmez.
+
+Başvuru:
+https://developers.cloudflare.com/pages/get-started/direct-upload/
+https://developers.cloudflare.com/pages/configuration/custom-domains/

@@ -1,0 +1,18 @@
+---
+import type { Product } from '../../data/products';
+import { formatPrice } from '../../lib/catalogue';
+interface Props { product: Product; }
+const { product } = Astro.props;
+const first = product.variants[0];
+---
+<div class="variant-panel" data-product-id={product.id} data-description={product.description} data-variants={JSON.stringify(product.variants)}>
+  <fieldset class="weight-selector" hidden>
+    <legend>Gramaj <span class="sr-only">— {product.name}</span></legend>
+    <div class="weight-options">{product.variants.map((variant, index) => <label><input type="radio" name={`weight-${product.id}`} value={variant.weight} checked={index === 0} /><span>{variant.weight}</span></label>)}</div>
+  </fieldset>
+  <div class="variant-summary" aria-live="polite" aria-atomic="true">
+    <p class="variant-price"><span data-variant-price>{formatPrice(first.price)}</span><span class="variant-weight" data-variant-weight>{first.weight}</span></p>
+    <p class="variant-description" data-variant-description>{first.description || product.description}</p>
+  </div>
+  <details class="variant-fallback"><summary>Tüm gramaj ve fiyatlar</summary><dl>{product.variants.map(variant => <div><dt>{variant.weight}</dt><dd>{formatPrice(variant.price)}{variant.description && <p>{variant.description}</p>}</dd></div>)}</dl></details>
+</div>

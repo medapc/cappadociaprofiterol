@@ -1,0 +1,10 @@
+---
+import { site } from '../data/site';
+import Icon from './Icon.astro';
+import ExternalLink from './ExternalLink.astro';
+---
+<nav class="mobile-contact" aria-label="Hızlı iletişim">
+  <a href={`tel:${site.phone}`}><Icon name="phone" /><span>Ara</span></a>
+  <ExternalLink href={site.whatsappUrl}><Icon name="chat" /><span>WhatsApp</span></ExternalLink>
+  <ExternalLink href={site.mapsUrl}><Icon name="pin" /><span>Yol Tarifi</span></ExternalLink>
+</nav>

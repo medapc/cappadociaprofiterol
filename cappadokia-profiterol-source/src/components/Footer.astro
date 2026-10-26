@@ -1,0 +1,9 @@
+---
+import Logo from './Logo.astro';
+import { site } from '../data/site';
+const topHref = Astro.url.pathname === '/' ? '#anasayfa' : '/#anasayfa';
+---
+<footer class="container footer">
+  <div class="footer-main"><Logo /><p>Hayata tatlı bir dokunuş.</p><a class="text-link" href="/#konum">Nevşehir’de Buluşalım ↗</a></div>
+  <div class="footer-bottom"><p>© {new Date().getFullYear()} {site.name}. Tüm hakları saklıdır.</p><a href={topHref}>Yukarı dön ↑</a></div>
+</footer>

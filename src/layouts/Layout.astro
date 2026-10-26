@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import '@fontsource/dm-sans/latin-400.css';
+import '@fontsource/dm-sans/latin-500.css';
+import '@fontsource/cormorant-garamond/latin-500.css';
+import '@fontsource/cormorant-garamond/latin-500-italic.css';
+import '@fontsource/dm-sans/latin-ext-400.css';
+import '@fontsource/dm-sans/latin-ext-500.css';
+import '@fontsource/cormorant-garamond/latin-ext-500.css';
+import '@fontsource/cormorant-garamond/latin-ext-500-italic.css';
+import { site } from '../data/site';
+import { getGalleryImages } from '../lib/gallery-images';
+import { getPublication, businessSchema } from '../lib/seo';
+import MobileContact from '../components/MobileContact.astro';
+import displayFont from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-normal.woff2?url';
+interface Props { title?: string; description?: string; noindex?: boolean; structuredData?: Record<string, unknown>; socialImage?: { src: string; width: number; height: number; alt: string }; }
+const { title = site.title, description = site.description, noindex = false, structuredData, socialImage: shareImage = { src: '/og-image.jpg', width: 1200, height: 630, alt: 'Cappadokia Profiterol için temsili çikolatalı profiterol sunumu' } } = Astro.props;
+const { origin, indexable } = getPublication(Astro.site);
+const canonical = origin && !noindex ? new URL(Astro.url.pathname, origin).href : undefined;
+const socialImage = origin ? new URL(shareImage.src, origin).href : shareImage.src;
+const shopImages = origin && !noindex ? (await getGalleryImages()).slice(0, 3).map(photo => new URL(photo.full.src, origin).href) : [];
+const schema = businessSchema(origin, shopImages);
+
+---
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#faf6ef" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={!indexable || noindex ? 'noindex, follow' : 'index, follow'} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content={String(shareImage.width)} />
+    <meta property="og:image:height" content={String(shareImage.height)} />
+    <meta property="og:image:alt" content={shareImage.alt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin />
+    {!noindex && <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />}
+    {!noindex && structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />}
+  </head>
+  <body>
+    <a href="#icerik" class="skip-link">İçeriğe geç</a>
+    <slot />
+    <MobileContact />
+    <script>import '../scripts/catalogue';</script>
+  </body>
+</html>

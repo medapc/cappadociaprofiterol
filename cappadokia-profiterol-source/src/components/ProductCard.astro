@@ -1,0 +1,16 @@
+---
+import type { Product } from '../data/products';
+import ProductImage from './products/ProductImage.astro';
+import WeightSelector from './products/WeightSelector.astro';
+interface Props extends Product { index: number; }
+const { index, ...product } = Astro.props;
+---
+<article class="product-card" data-category={product.category} aria-labelledby={`title-${product.id}`}>
+  <div class="product-card-surface">
+    <ProductImage image={product.image} name={product.name} />
+    <div class="product-card-body">
+      <div class="product-card-heading"><h3 id={`title-${product.id}`}>{product.name}</h3><span class="product-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span></div>
+      <WeightSelector product={product} />
+    </div>
+  </div>
+</article>

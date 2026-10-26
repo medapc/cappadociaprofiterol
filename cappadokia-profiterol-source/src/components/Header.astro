@@ -1,0 +1,19 @@
+---
+import ExternalLink from './ExternalLink.astro';
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { navLinks, directionsUrl } from '../data/site';
+const sectionLink = (href: string) => Astro.url.pathname === '/' ? href : `/${href}`;
+---
+<header class="site-header">
+  <div class="container flex items-center justify-between gap-5 py-5">
+    <Logo />
+    <nav class="desktop-nav" aria-label="Ana menü">{navLinks.map(link => <a href={sectionLink(link.href)}>{link.label}</a>)}</nav>
+    <ExternalLink class="button button-small header-direction" href={directionsUrl}><Icon name="pin" /> Yol Tarifi Al</ExternalLink>
+    <details class="mobile-menu">
+      <summary aria-label="Menü — gezinme bağlantıları"><span>Menü</span><span class="menu-lines" aria-hidden="true">☰</span></summary>
+      <nav aria-label="Mobil menü">{navLinks.map(link => <a href={sectionLink(link.href)}>{link.label}</a>)}<ExternalLink href={directionsUrl}>Yol Tarifi Al <Icon name="arrow" /></ExternalLink></nav>
+    </details>
+  </div>
+</header>
+<script>import '../scripts/menu';</script>

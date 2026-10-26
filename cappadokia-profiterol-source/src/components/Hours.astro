@@ -1,0 +1,9 @@
+---
+import Icon from './Icon.astro';
+import { site, type Day } from '../data/site';
+const days: Day[] = site.hours;
+---
+<section id="saatler" class="section container hours-section" aria-labelledby="hours-title">
+  <div class="hours-copy"><p class="eyebrow">KENDİNİZE BİR MOLA AYIRIN</p><h2 id="hours-title">Tatlı bir buluşmaya<br /><em>her zaman değer.</em></h2><p>Bir fincan kahvenin yanına, sevdiklerinizle sohbetin arasına… Ziyaretinizi planlayın, gününüze tatlı bir an ekleyin.</p><a href="#konum" class="text-link">Bizi Nerede Bulabilirsiniz? <Icon name="arrow" /></a></div>
+  <div class="hours-card"><div class="hours-card-title"><Icon name="clock" /><h3>Çalışma Saatlerimiz</h3></div><dl>{days.map(day => <div class="hours-row"><dt>{day.label}</dt><dd>{day.hours === 'closed' ? 'Kapalı' : day.hours ? `${day.hours.opens} – ${day.hours.closes}` : 'Yakında paylaşılacak'}</dd></div>)}</dl><p class="hours-note">{days.every(day => day.hours === null) ? 'Ziyaret saatlerimiz netleştiğinde burada duyurulacak.' : 'Resmî tatillerde saatler değişebilir. Ziyaretiniz öncesinde bizimle iletişime geçebilirsiniz.'}</p></div>
+</section>

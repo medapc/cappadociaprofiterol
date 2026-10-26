@@ -1,0 +1,24 @@
+---
+import Icon from './Icon.astro';
+import ExternalLink from './ExternalLink.astro';
+import { site, addressText } from '../data/site';
+---
+<section id="konum" class="location-section" aria-labelledby="location-title">
+  <div class="container location-grid">
+    <div>
+      <p class="eyebrow">NEVŞEHİR · EMEK MAHALLESİ</p>
+      <h2 id="location-title">Bir merhaba,<br /><em>bir kaşık mutluluk.</em></h2>
+      <p class="location-intro">Nevşehir’deki tatlı molanıza bekliyoruz.</p>
+      <address><Icon name="pin" /><span>{addressText}</span></address>
+      <p class="contact-person"><strong>{site.contactName}</strong><br />Telefon veya WhatsApp üzerinden sipariş verebilirsiniz.</p>
+      <div class="contact-actions">
+        <a class="button button-light" href={`tel:${site.phone}`}><Icon name="phone" />{site.phoneDisplay}</a>
+        <ExternalLink class="button button-outline-light" href={site.whatsappUrl}><Icon name="chat" />WhatsApp’tan Sipariş</ExternalLink>
+        <ExternalLink class="text-link partner-link" href={site.yemeksepetiUrl}>Yemeksepeti’nde İncele <span aria-hidden="true">↗</span></ExternalLink>
+      </div>
+    </div>
+    <div class="location-map">
+      <iframe src={site.mapEmbedUrl} title="Cappadokia Profiterol — Nevşehir Emek Mahallesi konum haritası" width="600" height="480" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>

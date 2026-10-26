@@ -1,0 +1,20 @@
+---
+import CategoryFilter from './products/CategoryFilter.astro';
+import ProductGrid from './products/ProductGrid.astro';
+import { site } from '../data/site';
+import ExternalLink from './ExternalLink.astro';
+import Icon from './Icon.astro';
+---
+<section id="urunler" class="products-section section" aria-labelledby="products-title">
+  <div class="container">
+    <div class="section-heading"><div><p class="eyebrow">TATLI BİR KEŞİF</p><h2 id="products-title">Birbirinden <em>tatlı sebepler.</em></h2></div><p>Çikolatalı bir klasik ya da paylaşmalık bir tatlı.<br />Sizin favoriniz hangisi?</p></div>
+    <p class="catalogue-intro">Eklerden profiterole, her tatlı molasına bir seçenek. Gramajınızı seçin, lezzetleri keşfedin.</p>
+    <aside class="pickup-offer" aria-label="Gel-al avantajı">
+      <span class="pickup-offer-icon" aria-hidden="true"><Icon name="spark" /></span>
+      <div><p class="pickup-offer-title">{site.pickupOffer}</p><p>Gel-al siparişiniz için telefon veya WhatsApp üzerinden bize ulaşabilirsiniz.</p></div>
+    </aside>
+    <CategoryFilter />
+    <ProductGrid />
+    <div class="catalogue-note"><p>Ürün içerikleri, alerjenler ve doğrulanmayı bekleyen fiyatlar için bizi arayabilirsiniz.</p><ExternalLink class="text-link" href={site.yemeksepetiUrl}>Güncel Menü · Yemeksepeti <span aria-hidden="true">↗</span></ExternalLink></div>
+  </div>
+</section>

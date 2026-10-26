@@ -1,0 +1,26 @@
+---
+import { Picture } from 'astro:assets';
+import hero from '../assets/profiterol.png';
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+---
+<section id="anasayfa" class="hero container" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="little-line"></span> NEVŞEHİR’DE TATLI BİR BULUŞMA</p>
+    <h1 id="hero-title">Hayatın en<br /><em>tatlı</em> molası.</h1>
+    <p class="hero-description">İncecik hamur, ipeksi krema ve çikolatanın büyüsü.<br class="hidden lg:block" /> Nevşehir Emek Mahallesi’nde, bir kaşık mutluluğa bekliyoruz.</p>
+    <div class="flex flex-wrap items-center gap-7 mt-8">
+      <a href="#urunler" class="button">Menüyü İncele <Icon name="arrow" /></a>
+      <a href="#hakkimizda" class="text-link">Hikâyemizi Keşfet <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="hero-footnote"><Icon name="spark" /><span>Emek, Nevşehir · {site.hoursSummary}</span></div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-image">
+      <Picture src={hero} alt="Parlak çikolata sosu ve vanilyalı kremayla temsili profiterol sunumu" widths={[480, 768, 1080, 1440]} sizes="(max-width: 767px) 92vw, (min-width: 1296px) 600px, 52vw" formats={['avif', 'webp']} fallbackFormat="webp" quality={65} loading="eager" fetchpriority="high" />
+    </div>
+    <div class="hero-stamp" aria-hidden="true"><span>ÇİKOLATA</span><Icon name="spark" /><span>AŞKINA</span></div>
+    <div class="hero-caption"><span>Bir klasiğin en tatlı hali.</span><span>TEMSİLİ SUNUM</span></div>
+  </div>
+</section>
+<div class="flavour-strip" aria-hidden="true"><span>İPEKSİ KREMA</span><Icon name="spark" /><span>YOĞUN ÇİKOLATA</span><Icon name="spark" /><span>MUTLU ANLAR</span><Icon name="spark" /><span>CAPPADOKIA PROFİTEROL</span></div>

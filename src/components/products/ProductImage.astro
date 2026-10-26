@@ -1,0 +1,12 @@
+---
+import { Image } from 'astro:assets';
+import { productImages } from '../../data/product-images';
+import Icon from '../Icon.astro';
+interface Props { image: string | null; name: string; priority?: boolean; }
+const { image, name, priority = false } = Astro.props;
+const asset = image ? productImages[image] : undefined;
+---
+<div class:list={['product-image', { 'product-image--editorial': image?.endsWith('.png') }]}>
+  {asset ? <Image src={asset} alt={`${name} sunumu`} widths={[360, 560, 800]} sizes="(max-width: 639px) 90vw, (max-width: 1023px) 44vw, 33vw" format="webp" quality={72} loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : 'auto'} /> :
+    <div class="product-placeholder"><span class="placeholder-mark" aria-hidden="true"><Icon name="spark" /></span><span>Ürün fotoğrafı yakında</span><span class="placeholder-brand" aria-hidden="true">CAPPADOKIA · PROFİTEROL</span></div>}
+</div>
