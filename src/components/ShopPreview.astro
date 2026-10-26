@@ -5,7 +5,7 @@ const photos = (await getGalleryImages()).slice(0, 3);
 ---
 <section id="mekanimiz" class="section shop-preview" aria-labelledby="shop-title">
   <div class="container">
-    <div class="section-heading"><div><p class="eyebrow">NEVŞEHİR’DE BULUŞALIM</p><h2 id="shop-title">Tatlı molanızın <em>bir köşesi var.</em></h2></div><p>Vitrinden cam kenarına,<br />Cappadokia Profiterol’den kareler.</p></div>
+    <div class="section-heading"><div><p class="eyebrow">NEVŞEHİR’DE BULUŞALIM</p><h2 id="shop-title">Tatlı molanızın <em>bir köşesi var.</em></h2></div><p>Vitrinden cam kenarına,<br />Cappadocia Profiterol’den kareler.</p></div>
     <div class="shop-preview-grid">{photos.map((photo, index) => <GalleryPhoto photo={photo} index={index} preview />)}</div>
     <div class="shop-gallery-action"><p>Mekânımızı ziyaret etmeden önce keşfedin.</p><a class="button" href="/mekanimiz/">Tüm fotoğrafları gör <span aria-hidden="true">↗</span></a></div>
   </div>

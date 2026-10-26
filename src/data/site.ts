@@ -19,9 +19,9 @@ export const addressText = `${address.street}, ${address.city}/${address.distric
 const phone = '+905078941841';
 const phoneDisplay = '+90 507 894 18 41';
 export const site = {
-  name: 'Cappadokia Profiterol',
-  title: 'Cappadokia Profiterol | Nevşehir’de Tatlı Molası',
-  description: `Nevşehir Emek Mahallesi’nde Cappadokia Profiterol. Profiterol ve ekler çeşitlerini keşfedin. Her gün 08.30–23.00. Telefon: ${phoneDisplay}.`,
+  name: 'Cappadocia Profiterol',
+  title: 'Cappadocia Profiterol | Nevşehir’de Tatlı Molası',
+  description: `Nevşehir Emek Mahallesi’nde Cappadocia Profiterol. Profiterol ve ekler çeşitlerini keşfedin. Her gün 08.30–23.00. Telefon: ${phoneDisplay}.`,
   address,
   phone,
   phoneDisplay,
