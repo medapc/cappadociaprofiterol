@@ -44,6 +44,7 @@
   .site-header { background: #faf6eff7; position: sticky; top: 0; z-index: 20; border-bottom: 1px solid #e9dfd3; }
   .brand { display: inline-flex; align-items: center; gap: 9px; flex-shrink: 0; }
   .brand > svg { color: var(--color-copper); }
+  .brand-logo { width: 60px; height: 60px; object-fit: contain; }
   .brand-name { display: block; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 30px; line-height: 1; letter-spacing: -.04em; }
   .brand-sub { display: block; text-align: center; font-size: 10px; margin-top: 6px; letter-spacing: .35em; }
   .desktop-nav { display: flex; align-items: center; gap: 30px; font-size: 13px; }
@@ -159,7 +160,8 @@
   html { scroll-padding-top: 98px; }
   .container { width: calc(100% - 40px); }
   .section { padding-block: 65px; }
-  .brand-name { font-size: 28px; } .brand > svg { height: 42px; width: 35px; }
+  .brand-name { font-size: 28px; }
+  .brand-logo { height: 52px; width: 52px; }
   .hero { grid-template-columns: 1fr; gap: 25px; padding-top: 42px; padding-bottom: 30px; }
   .hero-copy { padding: 0; }
   .hero-copy .eyebrow { font-size: 10px; margin-bottom: 19px; }

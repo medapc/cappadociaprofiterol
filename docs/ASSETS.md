@@ -6,7 +6,8 @@
 - `public/og-image.jpg`: aynı görselin 1200×630 paylaşım boyutu.
 - `src/assets/brownie.jpg`: [Unsplash kaynak görseli](https://images.unsplash.com/photo-1606313564200-e75d5e30476c). Önceki örnek tasarımdan kalan yerel dosya; artık arayüzde kullanılmaz.
 - `src/assets/cheesecake.jpg`: [Unsplash kaynak görseli](https://images.unsplash.com/photo-1533134242443-d4fd215305ad). Önceki örnek tasarımdan kalan yerel dosya; artık arayüzde kullanılmaz.
-- Logo ve favicon: bu proje için kodla hazırlanan geometrik Kapadokya/peribacası motifi; resmî mevcut logo olduğu iddia edilmez.
+- `public/logo.png`: kullanıcı tarafından sağlanan Cappadocia Profiterol logosu; header ve footer’da kullanılır.
+- `public/favicon.png`: aynı logonun tarayıcı sekmeleri için kullanılan PNG favicon’u.
 - Fontlar: Fontsource paketleri üzerinden Cormorant Garamond ve DM Sans. Lisanslar ilgili npm paketlerinde yer alır.
 
 ## Kullanılan Imagegen promptu

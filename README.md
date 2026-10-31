@@ -66,7 +66,7 @@ src/
   styles/global.css        ortak renk/radius tokenları, responsive düzen, odak/hareket
   assets/                  yerel görseller; kullanılmayan eski örnekler build'e alınmaz
 public/
-  favicon.svg, og-image.jpg, _headers, _redirects
+  logo.png, favicon.png, og-image.jpg, _headers, _redirects
 scripts/
   publication.test.mjs     yapılandırma testleri
   catalogue.test.mjs       15 ürün / 51 gramaj / null fiyat regresyonları
